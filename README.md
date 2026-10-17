@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Satisplanner
 
-## Getting Started
+Planejador de Satisfactory. A partir de uma ou mais metas em itens por minuto, o quadro mostra as máquinas e como ligá-las com divisores, mescladores e junções de cano. Itens em comum usam o mesmo grupo de máquinas.
 
-First, run the development server:
+## Uso
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Manifold**: tronco com um divisor por máquina; a máquina puxa a taxa dela e o resto segue.
+- **Balanceador**: árvore de divisores de 2 ou 3 saídas iguais. Saídas que sobram recirculam. Fluidos continuam em junção de cano.
+- Clique numa máquina para trocar a receita, o clock ou os somersloops daquele item.
+- A Mk de cada esteira ou cano é a menor que carrega a taxa, limitada pelo que está desbloqueado.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Os nomes dos itens vêm em inglês do conjunto de dados do Satisfactory Calculator (jogo 1.0, incluindo fluidos, subprodutos, alternativas, overclock e somersloop). Para regenerar `lib/data/game-data.json`:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run data:normalize
+```
